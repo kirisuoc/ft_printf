@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/27 17:45:27 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:47:22 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ int	ft_printf(char const *format, ...)
 			{
 				num = va_arg(args, int);
 				count += ft_putnbr(num);
+			}
+			if (format[i] == 'p')
+			{
+
 			}
 		}
 		else
