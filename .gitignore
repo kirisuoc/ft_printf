@@ -4,4 +4,4 @@ libft.h.gch
 *.o
 *.pdf
 libft.a
-
+libftprintf.a
