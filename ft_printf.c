@@ -6,11 +6,12 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/27 16:09:24 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:45:27 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Libft/libft.h"
+#include "libftprintf.h"
 #include <stdarg.h>
 
 // %c Imprime un solo caracter
@@ -46,8 +47,10 @@ int	ft_printf(char const *format, ...)
 	int			num;
 	char		character;
 	char		*string;
+	int			count;
 
 	i = 0;
+	count = 0;
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -57,22 +60,25 @@ int	ft_printf(char const *format, ...)
 			{
 				character = va_arg(args, int);
 				ft_putchar_fd(character, 1);
+				count++;
 			}
 			if (format[i] == 's')
 			{
 				string = va_arg(args, char *);
-				ft_putstr_fd(string, 1);
+				count += ft_putstr(string);
 			}
-			if (format[i] == 'd')
+			if (format[i] == 'd' || format[i] == 'i')
 			{
 				num = va_arg(args, int);
-				ft_putnbr_fd(num, 1);
+				count += ft_putnbr(num);
 			}
 		}
 		else
 		{
 			write(1, &format[i], 1);
+			count++;
 		}
 		i++;
 	}
+	return (count);
 }
