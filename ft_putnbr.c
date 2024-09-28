@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 17:00:41 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/27 17:33:31 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/09/28 18:29:54 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ int	ft_putnbr(int n)
 	if (n < 0)
 	{
 		count++;
-		write (1, "-", 1);
 		if (n == -2147483648)
 		{
-			write (1, "2147483648", 10);
+			write (1, "2147483648", 11);
 			return (11);
 		}
 		n = -n;
