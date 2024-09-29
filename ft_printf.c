@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/29 13:52:46 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/09/30 00:43:58 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@
 // %x Imprime un número hexadecimal (base 16) en minúsculas
 // %X Imprime un número hexadecimal (base 16) en mayúsculas
 // %% para imprimir el símbolo del porcentaje
-
-
+/*
 int	flag_minus(char **format, long number)
 {
 	int min_width;
@@ -120,31 +119,100 @@ int	manage_conv_number(char **format, long number)
 	return (printed_chars);
 }
 
-int	get_conv_type(char *format)
-{
-	int	i;
 
-	i = 0;
-	while (format[i])
+ */
+int	manage_c(t_format *info, va_list *args)
+{
+	int	printed_chars;
+
+	printed_chars = 0;
+	if (info->flag_minus && info->min_width)
 	{
-		if (format[i] == 'd' || format[i] == 'i')
-			return (1);
-		else if (format[i] == 'c')
-			return (2);
-		else if (format[i] == 's')
-			return (3);
-		i++;
+		printed_chars += ft_putchar(va_arg(*args, int));
+		while (info->min_width > 1)
+		{
+			printed_chars += ft_putchar(' ');
+			info->min_width--;
+		}
 	}
-	return (0);
+	else if (info->min_width)
+	{
+		while (info->min_width > 1)
+		{
+			printed_chars += ft_putchar(' ');
+			info->min_width--;
+		}
+		printed_chars += ft_putchar(va_arg(*args, int));
+	}
+	else
+		printed_chars += ft_putchar(va_arg(*args, int));
+	return (printed_chars);
 }
+void	parse_format_precision_identif(char **format, t_format *info)
+{
+	if (**format == '.')
+	{
+		(*format)++;
+		if (ft_isdigit(**format))
+		{
+			info->precision = ft_atoi(*format);
+			while (ft_isdigit(**format))
+				(*format)++;
+		}
+		else
+		{
+			info->precision = 0;
+		}
+	}
+	if (**format == 'd' || **format == 'i' || **format == 'c'
+		|| **format == 's' || **format == 'p' || **format == 'u'
+		|| **format == 'x' || **format == 'X' || **format == '%')
+			info->specifier = **format;
+}
+void	parse_format_flag_width(char **format, t_format *info)
+{
+	if (**format == '-')
+	{
+		info->flag_minus = 1;
+		(*format)++;
+	}
+	else if (**format == '0')
+	{
+		info->flag_zero = 1;
+		(*format)++;
+	}
+	if (ft_isdigit(**format))
+	{
+		if (**format == '0')
+			(*format)++;
+		info->min_width = ft_atoi(*format);
+		while (ft_isdigit(**format))
+			(*format)++;
+	}
+	parse_format_precision_identif(format, info);
+}
+
+int	process_format(t_format *info, va_list *args)
+{
+	int	printed_chars;
+
+	printed_chars = 0;
+/* 	if (info->specifier == 'd' || info->specifier == 'i')
+		printed_chars += manage_d(&args, args); */
+	if (info->specifier == 'c')
+		printed_chars += manage_c(info, args);
+
+	return (printed_chars);
+}
+
 
 int	ft_printf(char const *format, ...)
 {
 	va_list		args;
 	va_start(args, format);
-	int			number;
 	int			count;
 	char		*format_copy;
+	t_format	info;
 
 	count = 0;
 	format_copy = (char *)format;
@@ -153,25 +221,15 @@ int	ft_printf(char const *format, ...)
 		if (*format_copy == '%' && *(format_copy + 1))
 		{
 			format_copy++;
-			if (get_conv_type(format_copy) == 1)
-				count += manage_conv_number(&format_copy, va_arg(args, int));
- 			else if (get_conv_type(format_copy) == 2)
-				count += ft_putchar(va_arg(args, int));
-			else if (get_conv_type(format_copy) == 3)
-				count += ft_putstr(va_arg(args, char *));
-			else if (*format_copy == '%')
-				count += ft_putchar('%');
-			while (*format_copy && *format_copy != 'd' && *format_copy != 'i' && *format_copy != 'c' && *format_copy != 's' && *format_copy != '%')
-				format_copy++;
-/*			if (format[i] == 'p')
-			{
-
-			} */
+			ft_bzero(&info, sizeof(info));
+			parse_format_flag_width(&format_copy, &info);
+			count += process_format(&info, &args);
 		}
 		else
 			count += ft_putchar(*format_copy);
 		format_copy++;
 	}
+	va_end(args);
 	return (count);
 }
 /* int	manage_c(char character)
