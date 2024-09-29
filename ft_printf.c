@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/29 13:33:39 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/09/29 13:52:46 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,9 @@ int	ft_printf(char const *format, ...)
 				count += ft_putchar(va_arg(args, int));
 			else if (get_conv_type(format_copy) == 3)
 				count += ft_putstr(va_arg(args, char *));
-			while (*format_copy && *format_copy != 'd' && *format_copy != 'i' && *format_copy != 'c' && *format_copy != 's')
+			else if (*format_copy == '%')
+				count += ft_putchar('%');
+			while (*format_copy && *format_copy != 'd' && *format_copy != 'i' && *format_copy != 'c' && *format_copy != 's' && *format_copy != '%')
 				format_copy++;
 /*			if (format[i] == 'p')
 			{
