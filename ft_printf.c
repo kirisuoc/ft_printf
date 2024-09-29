@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/30 00:51:00 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/09/30 00:52:42 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,6 @@
 	. : Indica la precisión para números decimales o la cantidad de
 		dígitos que se deben
 		imprimir para números enteros.
-*/
-/*	__ Bonus 2 __
-	# : Usa un formato alternativo
-		* Para hexadecimales (%x, %X) se añade un prefijo 0x o 0X.
-	+ : Siempre imprime el signo + para números positivos (y - para negativos)
-   ' ': Deja un espacio en lugar del signo para números positivos
-   		(si no se usa el flag +)
 */
 
 // %c Imprime un solo caracter
