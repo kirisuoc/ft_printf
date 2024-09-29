@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/30 00:43:58 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/09/30 00:50:15 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,60 +41,6 @@
 // %X Imprime un número hexadecimal (base 16) en mayúsculas
 // %% para imprimir el símbolo del porcentaje
 /*
-int	flag_minus(char **format, long number)
-{
-	int min_width;
-	int	len_number;
-	int	fill_quantity;
-
-	min_width = ft_atoi(*format);
-	len_number = ft_strlen(ft_itoa(number));
-	if (min_width > len_number)
-		len_number = min_width;
-	if (number < 0)
-		write (1, "-", 1);
-	fill_quantity = len_number - ft_putnbr(number);
-	while (fill_quantity-- > 0)
-		write(1, " ", 1);
-	return (len_number);
-}
-int	flag_zero(char **format, long number)
-{
-	int min_width;
-	int	len_number;
-	int	fill_quantity;
-
-	min_width = ft_atoi(*format);
-	len_number = ft_strlen(ft_itoa(number));
-	if (min_width > len_number)
-		len_number = min_width;
-	fill_quantity = min_width - ft_strlen(ft_itoa(number));
-	if (number < 0)
-		write (1, "-", 1);
-	while (fill_quantity-- > 0)
-		write(1, "0", 1);
-	ft_putnbr(number);
-	return (len_number);
-}
-
-int	only_field_min_width(char **format, long number)
-{
-	int min_width;
-	int	len_number;
-	int	fill_quantity;
-
-	min_width = ft_atoi(*format);
-	len_number = ft_strlen(ft_itoa(number));
-	if (min_width > len_number)
-		len_number = min_width;
-	fill_quantity = min_width - ft_strlen(ft_itoa(number));
-	while (fill_quantity-- > 0)
-		write(1, " ", 1);
-	if (number < 0)
-		write (1, "-", 1);
-	ft_putnbr(number);
-	return (len_number);
-}
 
 int	manage_conv_number(char **format, long number)
 {
