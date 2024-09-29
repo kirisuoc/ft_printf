@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/30 00:50:15 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/09/30 00:51:00 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,29 +178,3 @@ int	ft_printf(char const *format, ...)
 	va_end(args);
 	return (count);
 }
-/* int	manage_c(char character)
-{
-	return (ft_putchar(character));
-}
-
-int	manage_s(char *string)
-{
-	return (ft_putstr(string));
-}
-
-int	manage_d(int number)
-{
-	return (ft_putnbr(number));
-}
-
-void manage_flags_negative_sign(char *format)
-{
-	int	i;
-
-	i = 1;
-	while (format[i] != 'd')
-	{
-
-	}
-	printf("ha llegado aqui\n");
-} */
