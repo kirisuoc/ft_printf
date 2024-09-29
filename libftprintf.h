@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 11:13:59 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/29 16:40:35 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/09/29 22:12:25 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 
 typedef struct s_format
 {
-	char	flag;
+	int		flag_minus;
+	int		flag_zero;
 	int		min_width;
 	int		precision;
 	char	specifier;
