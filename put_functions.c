@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   put_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 11:08:55 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/09/30 08:42:14 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/09/30 23:34:16 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,18 @@ int	ft_putnbr(int n)
 	return (count);
 }
 
+int	get_number_length(int number)
+{
+	int	len;
+
+	if (number <= 0)
+		len = 1;
+	else
+		len = 0;
+	while (number != 0)
+	{
+		number /= 10;
+		len++;
+	}
+	return (len);
+}
