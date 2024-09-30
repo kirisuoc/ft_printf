@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 11:13:59 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/30 09:27:06 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/09/30 22:32:26 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		ft_printf(char const *format, ...);
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
 int		ft_putnbr(int n);
+int		get_number_length(int number);
 int		manage_c(t_format *info, va_list *args);
 int		manage_d(t_format *info, va_list *args);
 void	parse_format(char **format, t_format *info);
