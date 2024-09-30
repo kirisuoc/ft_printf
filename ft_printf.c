@@ -6,13 +6,12 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/30 00:52:42 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/09/30 08:48:15 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Libft/libft.h"
 #include "libftprintf.h"
-#include <stdarg.h>
 
 /*	__ Bonus 1 __
 	- : Justificación a la izquierda. El valor se imprime
@@ -32,10 +31,9 @@
 // %u Imprime un número decimal (base 10) sin signo
 // %x Imprime un número hexadecimal (base 16) en minúsculas
 // %X Imprime un número hexadecimal (base 16) en mayúsculas
-// %% para imprimir el símbolo del porcentaje
-/*
+// %% para imprimir el símbolo del porcentaje /*
 
-int	manage_conv_number(char **format, long number)
+/*int	manage_conv_number(char **format, long number)
 {
 	int	printed_chars;
 	int	fill_quantity;
@@ -56,80 +54,7 @@ int	manage_conv_number(char **format, long number)
 	else if (ft_isdigit(**format))
 		printed_chars = only_field_min_width(format, number);
 	return (printed_chars);
-}
-
-
- */
-int	manage_c(t_format *info, va_list *args)
-{
-	int	printed_chars;
-
-	printed_chars = 0;
-	if (info->flag_minus && info->min_width)
-	{
-		printed_chars += ft_putchar(va_arg(*args, int));
-		while (info->min_width > 1)
-		{
-			printed_chars += ft_putchar(' ');
-			info->min_width--;
-		}
-	}
-	else if (info->min_width)
-	{
-		while (info->min_width > 1)
-		{
-			printed_chars += ft_putchar(' ');
-			info->min_width--;
-		}
-		printed_chars += ft_putchar(va_arg(*args, int));
-	}
-	else
-		printed_chars += ft_putchar(va_arg(*args, int));
-	return (printed_chars);
-}
-void	parse_format_precision_identif(char **format, t_format *info)
-{
-	if (**format == '.')
-	{
-		(*format)++;
-		if (ft_isdigit(**format))
-		{
-			info->precision = ft_atoi(*format);
-			while (ft_isdigit(**format))
-				(*format)++;
-		}
-		else
-		{
-			info->precision = 0;
-		}
-	}
-	if (**format == 'd' || **format == 'i' || **format == 'c'
-		|| **format == 's' || **format == 'p' || **format == 'u'
-		|| **format == 'x' || **format == 'X' || **format == '%')
-			info->specifier = **format;
-}
-void	parse_format_flag_width(char **format, t_format *info)
-{
-	if (**format == '-')
-	{
-		info->flag_minus = 1;
-		(*format)++;
-	}
-	else if (**format == '0')
-	{
-		info->flag_zero = 1;
-		(*format)++;
-	}
-	if (ft_isdigit(**format))
-	{
-		if (**format == '0')
-			(*format)++;
-		info->min_width = ft_atoi(*format);
-		while (ft_isdigit(**format))
-			(*format)++;
-	}
-	parse_format_precision_identif(format, info);
-}
+} */
 
 int	process_format(t_format *info, va_list *args)
 {
@@ -140,19 +65,20 @@ int	process_format(t_format *info, va_list *args)
 		printed_chars += manage_d(&args, args); */
 	if (info->specifier == 'c')
 		printed_chars += manage_c(info, args);
+	else if (info->specifier == 'd' || info->specifier == 'i')
+		printed_chars += manage_d(info, args);
 
 	return (printed_chars);
 }
 
-
 int	ft_printf(char const *format, ...)
 {
-	va_list		args;
-	va_start(args, format);
 	int			count;
 	char		*format_copy;
 	t_format	info;
+	va_list		args;
 
+	va_start(args, format);
 	count = 0;
 	format_copy = (char *)format;
 	while (*format_copy)
@@ -161,7 +87,7 @@ int	ft_printf(char const *format, ...)
 		{
 			format_copy++;
 			ft_bzero(&info, sizeof(info));
-			parse_format_flag_width(&format_copy, &info);
+			parse_format(&format_copy, &info);
 			count += process_format(&info, &args);
 		}
 		else
