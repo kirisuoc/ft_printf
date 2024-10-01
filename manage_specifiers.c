@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 08:30:38 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/01 16:34:42 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/01 16:36:53 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ static int	manage_flags_d(t_format *info, int number, int len)
 		flag_to_write = '-';
 	if (flag_to_write)
 	{
-		printed_chars += ft_putchar(flag_to_write);
-		printed_chars += ft_putnbr(number);
+		printed_chars += ft_putchar(flag_to_write) + ft_putnbr(number);
 	}
 	else
 		printed_chars += ft_putnbr(number);
