@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 08:34:17 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/01 13:07:49 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/01 17:50:30 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	parse_format_flags_width(char **format, t_format *info)
 	{
 		info->flag_plus = 1;
 		(*format)++;
+		if (**format == ' ')
+			(*format)++;
 	}
 	else if (**format == ' ')
 	{
@@ -39,6 +41,7 @@ static void	parse_format_flags_width(char **format, t_format *info)
 			(*format)++;
 	}
 }
+
 static void	parse_format_identif(char **format, t_format *info)
 {
 	if (**format == 'd' || **format == 'i' || **format == 'c'
