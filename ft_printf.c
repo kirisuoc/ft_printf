@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/30 19:14:17 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/01 13:01:18 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 	return (printed_chars);
 } */
 
-int	process_format(t_format *info, va_list *args)
+static int	process_format(t_format *info, va_list *args)
 {
 	int	printed_chars;
 
@@ -64,7 +64,7 @@ int	process_format(t_format *info, va_list *args)
 /* 	if (info->specifier == 'd' || info->specifier == 'i')
 		printed_chars += manage_d(&args, args); */
 	if (info->specifier == 'c')
-		printed_chars += manage_c(info, args);
+		printed_chars += ft_putchar(va_arg(*args, int));
 	else if (info->specifier == 'd' || info->specifier == 'i')
 		printed_chars += manage_d(info, args);
 /* 	else if (info->specifier == 's')
