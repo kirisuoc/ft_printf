@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/01 13:01:18 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/01 17:50:05 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@
 		imprimir para números enteros.
 */
 
-// %c Imprime un solo caracter
-// %s Imprime una string (como se define por defecto en C)
-// %p El puntero void * (dado como argumento se imprime en
+// %c Imprime un solo caracter 								OK
+// %s Imprime una string (como se define por defecto en C)	OK
+// %p El puntero void * (dado como argumento se imprime en	OK
 //	formato hexadecimal)
-// %d Imprime un número decimal (base 10)
-// %i Imprime un entero en base 10
+// %d Imprime un número decimal (base 10)					OK
+// %i Imprime un entero en base 10							OK
 // %u Imprime un número decimal (base 10) sin signo
 // %x Imprime un número hexadecimal (base 16) en minúsculas
 // %X Imprime un número hexadecimal (base 16) en mayúsculas
@@ -61,16 +61,17 @@ static int	process_format(t_format *info, va_list *args)
 	int	printed_chars;
 
 	printed_chars = 0;
-/* 	if (info->specifier == 'd' || info->specifier == 'i')
-		printed_chars += manage_d(&args, args); */
 	if (info->specifier == 'c')
 		printed_chars += ft_putchar(va_arg(*args, int));
 	else if (info->specifier == 'd' || info->specifier == 'i')
 		printed_chars += manage_d(info, args);
-/* 	else if (info->specifier == 's')
 	else if (info->specifier == 'p')
+		printed_chars += manage_p(info, args);
+	else if (info->specifier == 's')
+		printed_chars += ft_putstr(va_arg(*args, char *));
 	else if (info->specifier == 'u')
-	else if (info->specifier == 'x' || info->specifier == 'X') */
+		printed_chars += ft_putnbr_unsigned(va_arg(*args, unsigned int));
+/*	else if (info->specifier == 'x' || info->specifier == 'X') */
 	else if (info->specifier == '%')
 		printed_chars += ft_putchar('%');
 	return (printed_chars);
