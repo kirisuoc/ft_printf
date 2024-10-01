@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 11:08:55 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/09/30 23:34:16 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/01 13:26:23 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	ft_putnbr(int n)
 	count = 0;
 	if (n < 0)
 	{
-		count++;
 		if (n == -2147483648)
 		{
 			write (1, "2147483648", 11);
