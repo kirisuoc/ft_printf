@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 15:30:21 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/01 13:30:59 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/01 17:48:28 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 
 int	main(void)
 {
-	char	character = 'w';
-	char	*string = "Soy un string";
-	int		number = 56;
-	int		countletters = 0;
+	char			character = 'w';
+	char			*string = "Soy un string";
+	int				number = 568;
+	int				countletters = 0;
+	unsigned int	unumber = 3147483648;
+	int				*ptr = &number;
 
 /* 	printf("Esto es un caracter: %c\n", character);
 	printf("Esto es un string: %s\n", string);
@@ -33,8 +35,11 @@ int	main(void)
 	printf("%.10d\n", -2138);
 	int	countletters2 = printf("%015d %-5d %019i %18d %-12i %%\n", -2147483647, -6546, 99, 1234553, -543543534);
  */
-	int countletters1 = ft_printf("%+d % d %c\n", -54325, 8, 'v');
-	int countletters2 =    printf("%+d % d %c\n", -54325, 8, 'v');
+/* 	int countletters1 = ft_printf("%d   %+ d %d\n", -54325, 2147483, 4);
+	int countletters2 =    printf("%d   %+ d %d\n", -54325, 2147483, 4); */
+
+	int countletters1 = ft_printf("%p %s %+10d %u\n", (void *)ptr, string, number, unumber);
+	int countletters2 =    printf("%p %s %+10d %u\n", (void *)ptr, string, number, unumber);
 
 	printf("%d\n", countletters1);
 	printf("%d\n", countletters2);
