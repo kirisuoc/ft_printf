@@ -6,13 +6,12 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/29 13:52:46 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/01 17:50:05 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Libft/libft.h"
 #include "libftprintf.h"
-#include <stdarg.h>
 
 /*	__ Bonus 1 __
 	- : Justificación a la izquierda. El valor se imprime
@@ -22,82 +21,19 @@
 		dígitos que se deben
 		imprimir para números enteros.
 */
-/*	__ Bonus 2 __
-	# : Usa un formato alternativo
-		* Para hexadecimales (%x, %X) se añade un prefijo 0x o 0X.
-	+ : Siempre imprime el signo + para números positivos (y - para negativos)
-   ' ': Deja un espacio en lugar del signo para números positivos
-   		(si no se usa el flag +)
-*/
 
-// %c Imprime un solo caracter
-// %s Imprime una string (como se define por defecto en C)
-// %p El puntero void * (dado como argumento se imprime en
+// %c Imprime un solo caracter 								OK
+// %s Imprime una string (como se define por defecto en C)	OK
+// %p El puntero void * (dado como argumento se imprime en	OK
 //	formato hexadecimal)
-// %d Imprime un número decimal (base 10)
-// %i Imprime un entero en base 10
+// %d Imprime un número decimal (base 10)					OK
+// %i Imprime un entero en base 10							OK
 // %u Imprime un número decimal (base 10) sin signo
 // %x Imprime un número hexadecimal (base 16) en minúsculas
 // %X Imprime un número hexadecimal (base 16) en mayúsculas
-// %% para imprimir el símbolo del porcentaje
+// %% para imprimir el símbolo del porcentaje /*
 
-
-int	flag_minus(char **format, long number)
-{
-	int min_width;
-	int	len_number;
-	int	fill_quantity;
-
-	min_width = ft_atoi(*format);
-	len_number = ft_strlen(ft_itoa(number));
-	if (min_width > len_number)
-		len_number = min_width;
-	if (number < 0)
-		write (1, "-", 1);
-	fill_quantity = len_number - ft_putnbr(number);
-	while (fill_quantity-- > 0)
-		write(1, " ", 1);
-	return (len_number);
-}
-int	flag_zero(char **format, long number)
-{
-	int min_width;
-	int	len_number;
-	int	fill_quantity;
-
-	min_width = ft_atoi(*format);
-	len_number = ft_strlen(ft_itoa(number));
-	if (min_width > len_number)
-		len_number = min_width;
-	fill_quantity = min_width - ft_strlen(ft_itoa(number));
-	if (number < 0)
-		write (1, "-", 1);
-	while (fill_quantity-- > 0)
-		write(1, "0", 1);
-	ft_putnbr(number);
-	return (len_number);
-}
-
-int	only_field_min_width(char **format, long number)
-{
-	int min_width;
-	int	len_number;
-	int	fill_quantity;
-
-	min_width = ft_atoi(*format);
-	len_number = ft_strlen(ft_itoa(number));
-	if (min_width > len_number)
-		len_number = min_width;
-	fill_quantity = min_width - ft_strlen(ft_itoa(number));
-	while (fill_quantity-- > 0)
-		write(1, " ", 1);
-	if (number < 0)
-		write (1, "-", 1);
-	ft_putnbr(number);
-	return (len_number);
-}
-
-int	manage_conv_number(char **format, long number)
+/*int	manage_conv_number(char **format, long number)
 {
 	int	printed_chars;
 	int	fill_quantity;
@@ -118,34 +54,37 @@ int	manage_conv_number(char **format, long number)
 	else if (ft_isdigit(**format))
 		printed_chars = only_field_min_width(format, number);
 	return (printed_chars);
-}
+} */
 
-int	get_conv_type(char *format)
+static int	process_format(t_format *info, va_list *args)
 {
-	int	i;
+	int	printed_chars;
 
-	i = 0;
-	while (format[i])
-	{
-		if (format[i] == 'd' || format[i] == 'i')
-			return (1);
-		else if (format[i] == 'c')
-			return (2);
-		else if (format[i] == 's')
-			return (3);
-		i++;
-	}
-	return (0);
+	printed_chars = 0;
+	if (info->specifier == 'c')
+		printed_chars += ft_putchar(va_arg(*args, int));
+	else if (info->specifier == 'd' || info->specifier == 'i')
+		printed_chars += manage_d(info, args);
+	else if (info->specifier == 'p')
+		printed_chars += manage_p(info, args);
+	else if (info->specifier == 's')
+		printed_chars += ft_putstr(va_arg(*args, char *));
+	else if (info->specifier == 'u')
+		printed_chars += ft_putnbr_unsigned(va_arg(*args, unsigned int));
+/*	else if (info->specifier == 'x' || info->specifier == 'X') */
+	else if (info->specifier == '%')
+		printed_chars += ft_putchar('%');
+	return (printed_chars);
 }
 
 int	ft_printf(char const *format, ...)
 {
-	va_list		args;
-	va_start(args, format);
-	int			number;
 	int			count;
 	char		*format_copy;
+	t_format	info;
+	va_list		args;
 
+	va_start(args, format);
 	count = 0;
 	format_copy = (char *)format;
 	while (*format_copy)
@@ -153,50 +92,14 @@ int	ft_printf(char const *format, ...)
 		if (*format_copy == '%' && *(format_copy + 1))
 		{
 			format_copy++;
-			if (get_conv_type(format_copy) == 1)
-				count += manage_conv_number(&format_copy, va_arg(args, int));
- 			else if (get_conv_type(format_copy) == 2)
-				count += ft_putchar(va_arg(args, int));
-			else if (get_conv_type(format_copy) == 3)
-				count += ft_putstr(va_arg(args, char *));
-			else if (*format_copy == '%')
-				count += ft_putchar('%');
-			while (*format_copy && *format_copy != 'd' && *format_copy != 'i' && *format_copy != 'c' && *format_copy != 's' && *format_copy != '%')
-				format_copy++;
-/*			if (format[i] == 'p')
-			{
-
-			} */
+			ft_bzero(&info, sizeof(info));
+			parse_format(&format_copy, &info);
+			count += process_format(&info, &args);
 		}
 		else
 			count += ft_putchar(*format_copy);
 		format_copy++;
 	}
+	va_end(args);
 	return (count);
 }
-/* int	manage_c(char character)
-{
-	return (ft_putchar(character));
-}
-
-int	manage_s(char *string)
-{
-	return (ft_putstr(string));
-}
-
-int	manage_d(int number)
-{
-	return (ft_putnbr(number));
-}
-
-void manage_flags_negative_sign(char *format)
-{
-	int	i;
-
-	i = 1;
-	while (format[i] != 'd')
-	{
-
-	}
-	printf("ha llegado aqui\n");
-} */
