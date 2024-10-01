@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 15:30:21 by ecousill          #+#    #+#             */
-/*   Updated: 2024/09/30 19:47:28 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/01 13:30:59 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	main(void)
 	printf("%.10d\n", -2138);
 	int	countletters2 = printf("%015d %-5d %019i %18d %-12i %%\n", -2147483647, -6546, 99, 1234553, -543543534);
  */
-	int countletters1 = ft_printf("%010d %d %c %c\n", -2147483, 50, 'h', 'v');
-	int countletters2 =    printf("%010d %d %c %c\n", -2147483, 50, 'h', 'v');
+	int countletters1 = ft_printf("%+d % d %c\n", -54325, 8, 'v');
+	int countletters2 =    printf("%+d % d %c\n", -54325, 8, 'v');
 
 	printf("%d\n", countletters1);
 	printf("%d\n", countletters2);
