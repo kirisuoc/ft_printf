@@ -73,13 +73,11 @@ int	ft_putnbr_unsigned(unsigned int n)
 int	ft_putnbr_hex(size_t nbr, const char *base)
 {
 	char		digits[32];
-	int			base_len;
 	int			i;
 	int			printed_chars;
 
 	printed_chars = 0;
 	i = 0;
-	base_len = 16;
 	if (nbr == 0)
 	{
 		printed_chars += ft_putchar('0');

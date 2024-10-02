@@ -13,26 +13,6 @@
 #include "./libft/libft.h"
 #include "libftprintf.h"
 
-/*	__ Bonus 1 __
-	- : Justificación a la izquierda. El valor se imprime
-		alineado a la izquierda.
-	0 : Relleno con ceros en lugar de espacios.
-	. : Indica la precisión para números decimales o la cantidad de
-		dígitos que se deben
-		imprimir para números enteros.
-*/
-
-// %c Imprime un solo caracter 								OK
-// %s Imprime una string (como se define por defecto en C)	OK
-// %p El puntero void * (dado como argumento se imprime en	OK
-//	formato hexadecimal)
-// %d Imprime un número decimal (base 10)					OK
-// %i Imprime un entero en base 10							OK
-// %u Imprime un número decimal (base 10) sin signo
-// %x Imprime un número hexadecimal (base 16) en minúsculas
-// %X Imprime un número hexadecimal (base 16) en mayúsculas
-// %% para imprimir el símbolo del porcentaje /*
-
 static int	process_format(t_format *info, va_list *args)
 {
 	int	printed_chars;
@@ -43,7 +23,7 @@ static int	process_format(t_format *info, va_list *args)
 	else if (info->specifier == 'd' || info->specifier == 'i')
 		printed_chars += manage_d(info, args);
 	else if (info->specifier == 'p')
-		printed_chars += manage_p(info, args);
+		printed_chars += manage_p(args);
 	else if (info->specifier == 's')
 		printed_chars += ft_putstr(va_arg(*args, char *));
 	else if (info->specifier == 'u')

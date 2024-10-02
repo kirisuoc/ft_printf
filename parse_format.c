@@ -47,7 +47,7 @@ static void	parse_format_identif(char **format, t_format *info)
 	if (**format == 'd' || **format == 'i' || **format == 'c'
 		|| **format == 's' || **format == 'p' || **format == 'u'
 		|| **format == 'x' || **format == 'X' || **format == '%')
-			info->specifier = **format;
+		info->specifier = **format;
 }
 
 void	parse_format(char **format, t_format *info)

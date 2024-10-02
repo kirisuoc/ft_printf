@@ -13,8 +13,7 @@
 #include "./libft/libft.h"
 #include "libftprintf.h"
 
-int	manage_only_width(t_format *info, int number, int len,
-	int fill_quantity)
+int	manage_only_width(int number, int fill_quantity)
 {
 	int	printed_chars;
 
@@ -52,7 +51,7 @@ int	manage_flags_d(t_format *info, int number, int len)
 	else
 		printed_chars += ft_putnbr(number);
 	if (info->min_width && !info->flag_plus && !info->flag_space)
-		printed_chars += manage_only_width(info, number, len, fill_quantity);
+		printed_chars += manage_only_width(number, fill_quantity);
 	return (printed_chars);
 }
 
@@ -71,4 +70,3 @@ int	get_number_length(int number)
 	}
 	return (len);
 }
-

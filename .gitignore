@@ -8,3 +8,4 @@ a.out.yml
 libft.a
 libftprintf.a
 .DS_Store
+test_ft_printf.c

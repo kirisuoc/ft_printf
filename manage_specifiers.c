@@ -13,7 +13,6 @@
 #include "./libft/libft.h"
 #include "libftprintf.h"
 
-
 int	manage_d(t_format *info, va_list *args)
 {
 	int	printed_chars;
@@ -27,7 +26,7 @@ int	manage_d(t_format *info, va_list *args)
 	return (printed_chars);
 }
 
-int	manage_p(t_format *info, va_list *args)
+int	manage_p(va_list *args)
 {
 	void				*ptr;
 	unsigned long long	address;
@@ -49,7 +48,6 @@ int	manage_x(t_format *info, va_list *args)
 	size_t		hexnumber;
 	const char	*base;
 
-
 	printed_chars = 0;
 	hexnumber = va_arg(*args, size_t);
 	if (info->specifier == 'x')
@@ -58,7 +56,6 @@ int	manage_x(t_format *info, va_list *args)
 		base = "0123456789ABCDEF";
 	else
 		return (0);
-
 	if (info->flag_hash == 1 && hexnumber != 0)
 	{
 		if (info->specifier == 'x')
