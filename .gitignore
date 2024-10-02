@@ -1,5 +1,7 @@
 a.out
-libft.h.gch
+libftprintf.h.gch
+info.plist
+a.out.yml
 .vscode
 *.o
 *.pdf
