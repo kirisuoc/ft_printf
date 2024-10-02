@@ -6,11 +6,11 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/02 12:19:14 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/02 13:28:32 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Libft/libft.h"
+#include "./libft/libft.h"
 #include "libftprintf.h"
 
 /*	__ Bonus 1 __
@@ -48,7 +48,8 @@ static int	process_format(t_format *info, va_list *args)
 		printed_chars += ft_putstr(va_arg(*args, char *));
 	else if (info->specifier == 'u')
 		printed_chars += ft_putnbr_unsigned(va_arg(*args, unsigned int));
-/*	else if (info->specifier == 'x' || info->specifier == 'X') */
+	else if (info->specifier == 'x' || info->specifier == 'X')
+		printed_chars += manage_x(info, args);
 	else if (info->specifier == '%')
 		printed_chars += ft_putchar('%');
 	return (printed_chars);

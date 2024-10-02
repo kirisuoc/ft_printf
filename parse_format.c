@@ -6,11 +6,11 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 08:34:17 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/01 17:50:30 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/02 13:28:45 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Libft/libft.h"
+#include "./libft/libft.h"
 #include "libftprintf.h"
 
 static void	parse_format_flags_width(char **format, t_format *info)

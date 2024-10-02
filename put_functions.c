@@ -6,11 +6,11 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 11:08:55 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/01 17:49:25 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/02 13:38:17 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Libft/libft.h"
+#include "./libft/libft.h"
 
 int	ft_putchar(char c)
 {
@@ -70,18 +70,27 @@ int	ft_putnbr_unsigned(unsigned int n)
 	return (count);
 }
 
-int	get_number_length(int number)
+int	ft_putnbr_hex(size_t nbr, const char *base)
 {
-	int	len;
+	char		digits[32];
+	int			base_len;
+	int			i;
+	int			printed_chars;
 
-	if (number <= 0)
-		len = 1;
-	else
-		len = 0;
-	while (number != 0)
+	printed_chars = 0;
+	i = 0;
+	base_len = 16;
+	if (nbr == 0)
 	{
-		number /= 10;
-		len++;
+		printed_chars += ft_putchar('0');
+		return (printed_chars);
 	}
-	return (len);
+	while (nbr > 0)
+	{
+		digits[i++] = base[nbr % 16];
+		nbr = nbr / 16;
+	}
+	while (--i >= 0)
+		printed_chars += ft_putchar(digits[i]);
+	return (printed_chars);
 }
