@@ -6,7 +6,7 @@
 /*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/01 17:50:05 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/02 12:19:14 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,29 +32,6 @@
 // %x Imprime un número hexadecimal (base 16) en minúsculas
 // %X Imprime un número hexadecimal (base 16) en mayúsculas
 // %% para imprimir el símbolo del porcentaje /*
-
-/*int	manage_conv_number(char **format, long number)
-{
-	int	printed_chars;
-	int	fill_quantity;
-
-	if (**format == 'd' || **format == 'i')
-		return (ft_putnbr(number));
-
-	else if (**format == '-')
-	{
-		(*format)++;
-		printed_chars = flag_minus(format, number);
-	}
-	else if (**format == '0')
-	{
-		(*format)++;
-		printed_chars = flag_zero(format, number);
-	}
-	else if (ft_isdigit(**format))
-		printed_chars = only_field_min_width(format, number);
-	return (printed_chars);
-} */
 
 static int	process_format(t_format *info, va_list *args)
 {
