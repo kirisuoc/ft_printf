@@ -18,7 +18,12 @@ SRCS = ft_printf.c aux_functions.c manage_specifiers.c parse_format.c put_functi
 OBJS = $(SRCS:.c=.o)
 
 # Regla principal
-all: $(NAME)
+all: $(LIBFT) $(NAME)
+# ????
+
+$(LIBFT):
+	@echo "$(YELLOW)Compilando libft$(RESET)"
+	make -C ./libft
 
 # Regla para crear la biblioteca
 $(NAME): $(OBJS) $(LIBFT)
@@ -35,11 +40,14 @@ $(NAME): $(OBJS) $(LIBFT)
 clean:
 	@echo "$(RED)Limpiando archivos objeto$(RESET)"
 	rm -rf $(OBJS)
+	make -C ./libft clean
 
 fclean: clean
 	@echo "$(RED)Limpiando la biblioteca $(NAME)$(RESET)"
 	rm -rf $(NAME)
+	make -C ./libft fclean
 
 # Regla para recompilar todo
 re: fclean all
 	@echo "$(YELLOW)Recompilando todo$(RESET)"
+
