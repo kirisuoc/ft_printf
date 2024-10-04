@@ -6,11 +6,12 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 11:08:55 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/04 11:20:21 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:09:39 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {

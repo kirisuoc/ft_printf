@@ -6,12 +6,12 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 08:30:38 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/04 16:50:04 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:09:28 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
-#include "ft_libft.h"
+#include "ft_printf.h"
 
 int	manage_d(t_format *info, va_list *args)
 {

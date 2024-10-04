@@ -6,12 +6,12 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 08:34:17 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/04 16:50:02 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:09:31 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
-#include "ft_libft.h"
+#include "ft_printf.h"
 
 static void	parse_format_flags_width(char **format, t_format *info)
 {
