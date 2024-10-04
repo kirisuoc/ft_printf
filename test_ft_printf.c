@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_ft_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 15:30:21 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/02 13:28:54 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/04 10:43:07 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void test_printf(const char *format, ...) {
     va_start(args, format);
     int original_return = vsnprintf(original_output, sizeof(original_output), format, args);
     va_end(args);
-    
+
     // Imprimir la salida original
     printf("Original printf output: %s", original_output);
 
@@ -54,7 +54,7 @@ void test_printf(const char *format, ...) {
     // Comparar resultados
     printf("Original printf returned: %d\n", original_return);
     printf("ft_printf returned: %d\n", ft_return);
-    
+
     if (original_return == ft_return) {
         printf(GREEN "Return values match!\n" RESET);
     } else {
@@ -74,41 +74,107 @@ int main() {
     printf(YELLOW"\n		------- TEST FT_PRINTF -------\n\n"RESET);
 
     // Pruebas de la función ft_printf
-    test_printf("Hello, World!\n");
-    test_printf("Integer: %d\n", 42);
-    test_printf("Negative Integer: %d\n", -42);
-    test_printf("String with newline\nand tab\tcharacter\n");
-    test_printf("String with %d%% special character\n", 100);
-    test_printf("Hexadecimal (lowercase): %x\n", 255);
-    test_printf("Hexadecimal (uppercase): %X\n", 255);
-    
+    printf("Hello, World!\n");
+	ft_printf("Hello, World!\n");
+
+    printf("Integer: %d\n", 42);
+    ft_printf("Integer: %d\n", 42);
+
+    printf("Negative Integer: %d\n", -42);
+    ft_printf("Negative Integer: %d\n", -42);
+
+    printf("String with newline\nand tab\tcharacter\n");
+    ft_printf("String with newline\nand tab\tcharacter\n");
+
+    printf("String with %d%% special character\n", 100);
+    ft_printf("String with %d%% special character\n", 100);
+
+    printf("Hexadecimal (lowercase): %x\n", 255);
+    ft_printf("Hexadecimal (lowercase): %x\n", 255);
+
+    printf("Hexadecimal (uppercase): %X\n", 255);
+    ft_printf("Hexadecimal (uppercase): %X\n", 255);
+
+
     int var = 10;
-    test_printf("Pointer: %p\n", (void*)&var);
-    test_printf("Character: %c\n", 'A');
-    test_printf("Mixed: %d, %s, %c\n", 42, "example", 'Z');
-    test_printf("Width: [%10s]\n", "test");
-    test_printf("\n");
-    test_printf("   \n");
-	test_printf("Space before positive: [% d]\n", 42);
-	test_printf("Space before negative: [% d]\n", -42);
-	test_printf("Positive sign: [%+d]\n", 42);
-	test_printf("Negative sign: [%+d]\n", -42);
-	test_printf("Octal with # prefix: [%#o]\n", 42);
-	test_printf("Hexadecimal with # prefix (lowercase): [%#x]\n", 255);
-	test_printf("Hexadecimal with # prefix (uppercase): [%#X]\n", 255);
-	test_printf("Right-aligned: [%5d]\n", 42);
-	test_printf("Left-aligned: [%-5d]\n", 42);
-	test_printf("Empty string: [%s]\n", "");
-	test_printf("String with spaces: [%s]\n", "   ");
-	test_printf("Zero: [%d]\n", 0);
-	test_printf("Null pointer: %p\n", NULL);
-	test_printf("Percentage: [%%]\n");
-	test_printf("Negative with sign: [%+d]\n", -42);
-	test_printf("Negative octal: [%o]\n", -42); // Puede depender de tu implementación
-	test_printf("Precision truncation: [%.5s]\n", "Hello, World!");
-	test_printf("Combined: [% #5d]\n", 42);
-	test_printf("Combined: [%#10x]\n", 255);
-	test_printf("Combined: [%+10d]\n", 42);
+    printf("Pointer: %p\n", (void*)&var);
+    ft_printf("Pointer: %p\n", (void*)&var);
+
+    printf("Character: %c\n", 'A');
+    ft_printf("Character: %c\n", 'A');
+
+    printf("Mixed: %d, %s, %c\n", 42, "example", 'Z');
+    ft_printf("Mixed: %d, %s, %c\n", 42, "example", 'Z');
+
+    printf("Width: [%10s]\n", "test");
+    ft_printf("Width: [%10s]\n", "test");
+
+    printf("\n");
+    ft_printf("\n");
+
+    printf("   \n");
+    ft_printf("   \n");
+
+	printf("Space before positive: [% d]\n", 42);
+	ft_printf("Space before positive: [% d]\n", 42);
+
+	printf("Space before negative: [% d]\n", -42);
+	ft_printf("Space before negative: [% d]\n", -42);
+
+	printf("Positive sign: [%+d]\n", 42);
+	ft_printf("Positive sign: [%+d]\n", 42);
+
+	printf("Negative sign: [%+d]\n", -42);
+	ft_printf("Negative sign: [%+d]\n", -42);
+
+	printf("Octal with # prefix: [%#o]\n", 42);
+	ft_printf("Octal with # prefix: [%#o]\n", 42);
+
+	printf("Hexadecimal with # prefix (lowercase): [%#x]\n", 255);
+	ft_printf("Hexadecimal with # prefix (lowercase): [%#x]\n", 255);
+
+	printf("Hexadecimal with # prefix (uppercase): [%#X]\n", 255);
+	ft_printf("Hexadecimal with # prefix (uppercase): [%#X]\n", 255);
+
+	printf("Right-aligned: [%5d]\n", 42);
+	ft_printf("Right-aligned: [%5d]\n", 42);
+
+	printf("Left-aligned: [%-5d]\n", 42);
+	ft_printf("Left-aligned: [%-5d]\n", 42);
+
+	printf("Empty string: [%s]\n", "");
+	ft_printf("Empty string: [%s]\n", "");
+
+	printf("String with spaces: [%s]\n", "   ");
+	ft_printf("String with spaces: [%s]\n", "   ");
+
+	printf("Zero: [%d]\n", 0);
+	ft_printf("Zero: [%d]\n", 0);
+
+	printf("Null pointer: %p\n", NULL);
+	ft_printf("Null pointer: %p\n", NULL);
+
+	printf("Percentage: [%%]\n");
+	ft_printf("Percentage: [%%]\n");
+
+	printf("Negative with sign: [%+d]\n", -42);
+	ft_printf("Negative with sign: [%+d]\n", -42);
+
+	printf("Negative octal: [%o]\n", -42); // Puede depender de tu implementación
+	ft_printf("Negative octal: [%o]\n", -42); // Puede depender de tu implementación
+
+	printf("Precision truncation: [%.5s]\n", "Hello, World!");
+	ft_printf("Precision truncation: [%.5s]\n", "Hello, World!");
+
+	printf("Combined: [% #5d]\n", 42);
+	ft_printf("Combined: [% #5d]\n", 42);
+
+	printf("Combined: [%#10x]\n", 255);
+	ft_printf("Combined: [%#10x]\n", 255);
+
+	printf("Combined: [%+10d]\n", 42);
+	ft_printf("Combined: [%+10d]\n", 42);
+
 
 
     test_printf("Complex: [%5d] [%10s] [%c]""		***\n", 42, "test", 'Z');
