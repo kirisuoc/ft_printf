@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   manage_specifiers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 08:30:38 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/02 13:30:52 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/04 16:50:04 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
-#include "libftprintf.h"
+#include "ft_libft.h"
 
 int	manage_d(t_format *info, va_list *args)
 {
@@ -26,19 +26,20 @@ int	manage_d(t_format *info, va_list *args)
 	return (printed_chars);
 }
 
-int	manage_p(va_list *args)
+int	manage_p(unsigned long ptr)
 {
-	void				*ptr;
-	unsigned long long	address;
 	int					printed_chars;
 	const char			*base;
 
 	printed_chars = 0;
 	base = "0123456789abcdef";
-	ptr = va_arg(*args, void *);
-	address = (unsigned long long)ptr;
-	printed_chars += ft_putstr("0x");
-	printed_chars += ft_putnbr_hex(address, base);
+	if (ptr == 0)
+		printed_chars += ft_putstr("(nil)");
+	else
+	{
+		printed_chars += ft_putstr("0x");
+		printed_chars += ft_putnbr_hex(ptr, base);
+	}
 	return (printed_chars);
 }
 

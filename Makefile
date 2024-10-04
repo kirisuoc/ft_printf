@@ -19,7 +19,6 @@ OBJS = $(SRCS:.c=.o)
 
 # Regla principal
 all: $(LIBFT) $(NAME)
-# ????
 
 $(LIBFT):
 	@echo "$(YELLOW)Compilando libft$(RESET)"

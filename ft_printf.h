@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 11:13:59 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/04 11:17:39 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/04 16:49:23 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FTPRINTF_H
+# define FTPRINTF_H
 
 # include <stddef.h>
 # include <unistd.h>

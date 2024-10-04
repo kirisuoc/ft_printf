@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/02 13:28:32 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/04 16:50:02 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
-#include "libftprintf.h"
+#include "ft_libft.h"
 
 static int	process_format(t_format *info, va_list *args)
 {
@@ -23,7 +23,7 @@ static int	process_format(t_format *info, va_list *args)
 	else if (info->specifier == 'd' || info->specifier == 'i')
 		printed_chars += manage_d(info, args);
 	else if (info->specifier == 'p')
-		printed_chars += manage_p(args);
+		printed_chars += manage_p(va_arg(*args, unsigned long));
 	else if (info->specifier == 's')
 		printed_chars += ft_putstr(va_arg(*args, char *));
 	else if (info->specifier == 'u')

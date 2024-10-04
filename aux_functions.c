@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   aux_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 13:29:45 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/02 13:38:30 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/04 16:50:02 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
-#include "libftprintf.h"
+#include "ft_libft.h"
 
 int	manage_only_width(int number, int fill_quantity)
 {

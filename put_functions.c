@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 11:08:55 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/02 13:38:17 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/04 11:20:21 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int	ft_putstr(char *s)
 {
 	int		len;
 
+	if (s == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	len = ft_strlen(s);
 	if (!*s)
 		return (0);
