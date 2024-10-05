@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manage_specifiers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 08:30:38 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/04 17:09:28 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/05 13:23:24 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,19 @@ int	manage_p(unsigned long ptr)
 	else
 	{
 		printed_chars += ft_putstr("0x");
-		printed_chars += ft_putnbr_hex(ptr, base);
+		printed_chars += ft_putnbr_ptr(ptr, base);
 	}
 	return (printed_chars);
 }
 
 int	manage_x(t_format *info, va_list *args)
 {
-	int			printed_chars;
-	size_t		hexnumber;
-	const char	*base;
+	int				printed_chars;
+	unsigned int	hexnumber;
+	const char		*base;
 
 	printed_chars = 0;
-	hexnumber = va_arg(*args, size_t);
+	hexnumber = va_arg(*args, unsigned int);
 	if (info->specifier == 'x')
 		base = "0123456789abcdef";
 	else if (info->specifier == 'X')
