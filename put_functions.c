@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 11:08:55 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/05 13:41:22 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/07 13:29:35 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_putnbr(long n)
 	{
 		if (n == -2147483648)
 		{
-			write (1, "2147483648", 11);
+			write (1, "2147483648", 10);
 			return (10);
 		}
 		n = -n;

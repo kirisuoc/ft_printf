@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 11:13:59 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/05 13:41:10 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/07 13:08:20 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_format
 	int		flag_plus;
 	int		flag_hash;
 	int		flag_space;
-	int		min_width;
 	char	specifier;
 }			t_format;
 
@@ -40,9 +39,7 @@ int		ft_putnbr_ptr(unsigned long nbr, const char *base);
 int		get_number_length(int number);
 
 // aux_functions
-int		manage_only_width(int number, int fill_quantity);
-int		manage_flags_d(t_format *info, int number, int len);
-int		get_number_length(int number);
+int		manage_flags_d(t_format *info, int number);
 
 // manage_specifiers
 int		manage_d(t_format *info, va_list *args);

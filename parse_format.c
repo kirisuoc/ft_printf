@@ -6,7 +6,7 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 08:34:17 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/04 17:09:31 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/07 13:06:37 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,6 @@ static void	parse_format_flags_width(char **format, t_format *info)
 	{
 		info->flag_hash = 1;
 		(*format)++;
-	}
-	if (ft_isdigit(**format))
-	{
-		if (**format == '0')
-			(*format)++;
-		info->min_width = ft_atoi(*format);
-		while (ft_isdigit(**format))
-			(*format)++;
 	}
 }
 

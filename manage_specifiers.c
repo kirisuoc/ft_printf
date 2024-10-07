@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manage_specifiers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 08:30:38 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/05 13:23:24 by erikcousill      ###   ########.fr       */
+/*   Updated: 2024/10/07 13:10:13 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ int	manage_d(t_format *info, va_list *args)
 {
 	int	printed_chars;
 	int	number;
-	int	len_number;
 
 	printed_chars = 0;
 	number = va_arg(*args, int);
-	len_number = get_number_length(number);
-	printed_chars += manage_flags_d(info, number, len_number);
+	printed_chars += manage_flags_d(info, number);
 	return (printed_chars);
 }
 

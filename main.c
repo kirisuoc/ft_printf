@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aux_functions.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 13:29:45 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/07 13:09:20 by ecousill         ###   ########.fr       */
+/*   Created: 2024/10/07 13:18:03 by ecousill          #+#    #+#             */
+/*   Updated: 2024/10/07 13:27:34 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "ft_printf.h"
+#include <limits.h>
 
-int	manage_flags_d(t_format *info, int number)
+int main(void)
 {
-	int		printed_chars;
-	char	flag_to_write;
+	int b =    printf("%d\n", -2147483648);
+	int d = printf("%d\n", INT_MIN);
 
-	printed_chars = 0;
-	flag_to_write = '\0';
-	if (info->flag_plus && number > 0)
-		flag_to_write = '+';
-	else if (info->flag_space && number > 0)
-		flag_to_write = ' ';
-	else if (number < 0)
-		flag_to_write = '-';
-	if (flag_to_write)
-		printed_chars += ft_putchar(flag_to_write) + ft_putnbr(number);
-	else
-		printed_chars += ft_putnbr(number);
-	return (printed_chars);
+	printf("%d\n", b);
+	printf("%d\n", d);
+	return (0);
 }
