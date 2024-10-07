@@ -28,7 +28,7 @@ $(LIBFT):
 $(NAME): $(OBJS) $(LIBFT)
 	@echo "$(GREEN)Construyendo $(NAME)$(RESET)"
 	@echo "$(GREEN)Creando la biblioteca $(NAME)$(RESET)"
-	$(AR) $@ $^
+	$(AR) $@ $(OBJS) ./libft/*.o
 
 # Regla para compilar los archivos fuente en objetos
 %.o: %.c

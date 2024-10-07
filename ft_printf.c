@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:57:10 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/04 17:09:23 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/05 13:25:25 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	process_format(t_format *info, va_list *args)
 	else if (info->specifier == 's')
 		printed_chars += ft_putstr(va_arg(*args, char *));
 	else if (info->specifier == 'u')
-		printed_chars += ft_putnbr_unsigned(va_arg(*args, unsigned int));
+		printed_chars += ft_putnbr(va_arg(*args, unsigned int));
 	else if (info->specifier == 'x' || info->specifier == 'X')
 		printed_chars += manage_x(info, args);
 	else if (info->specifier == '%')

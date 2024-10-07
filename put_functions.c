@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 11:08:55 by erikcousill       #+#    #+#             */
-/*   Updated: 2024/10/04 17:09:39 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/05 13:41:22 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_putstr(char *s)
 	return (len);
 }
 
-int	ft_putnbr(int n)
+int	ft_putnbr(long n)
 {
 	char	digit;
 	int		count;
@@ -60,23 +60,30 @@ int	ft_putnbr(int n)
 	return (count);
 }
 
-int	ft_putnbr_unsigned(unsigned int n)
+int	ft_putnbr_hex(unsigned int nbr, const char *base)
 {
-	char	digit;
-	int		count;
+	char		digits[32];
+	int			i;
+	int			printed_chars;
 
-	count = 0;
-	if (n >= 10)
+	printed_chars = 0;
+	i = 0;
+	if (nbr == 0)
 	{
-		count += ft_putnbr_unsigned(n / 10);
+		printed_chars += ft_putchar('0');
+		return (printed_chars);
 	}
-	digit = n % 10 + '0';
-	write(1, &digit, 1);
-	count++;
-	return (count);
+	while (nbr > 0)
+	{
+		digits[i++] = base[nbr % 16];
+		nbr = nbr / 16;
+	}
+	while (--i >= 0)
+		printed_chars += ft_putchar(digits[i]);
+	return (printed_chars);
 }
 
-int	ft_putnbr_hex(size_t nbr, const char *base)
+int	ft_putnbr_ptr(unsigned long nbr, const char *base)
 {
 	char		digits[32];
 	int			i;

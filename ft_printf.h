@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 11:13:59 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/04 16:49:23 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/05 13:41:10 by erikcousill      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FTPRINTF_H
-# define FTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stddef.h>
 # include <unistd.h>
@@ -34,9 +34,9 @@ void	parse_format(char **format, t_format *info);
 // put_functions
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
-int		ft_putnbr(int n);
-int		ft_putnbr_unsigned(unsigned int n);
-int		ft_putnbr_hex(size_t nbr, const char *base);
+int		ft_putnbr(long n);
+int		ft_putnbr_hex(unsigned int nbr, const char *base);
+int		ft_putnbr_ptr(unsigned long nbr, const char *base);
 int		get_number_length(int number);
 
 // aux_functions
