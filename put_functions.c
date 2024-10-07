@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   put_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 11:08:55 by erikcousill       #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/10/07 13:29:35 by ecousill         ###   ########.fr       */
+=======
+/*   Updated: 2024/10/05 13:41:22 by erikcousill      ###   ########.fr       */
+>>>>>>> refs/remotes/origin/main
 /*                                                                            */
 /* ************************************************************************** */
 
