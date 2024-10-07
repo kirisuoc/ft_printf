@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 11:13:59 by ecousill          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/10/07 13:08:20 by ecousill         ###   ########.fr       */
-=======
-/*   Updated: 2024/10/05 13:41:10 by erikcousill      ###   ########.fr       */
->>>>>>> refs/remotes/origin/main
+/*   Created: 2024/10/07 13:36:51 by ecousill          #+#    #+#             */
+/*   Updated: 2024/10/07 13:36:54 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

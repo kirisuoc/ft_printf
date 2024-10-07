@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manage_specifiers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erikcousillas <erikcousillas@student.42    +#+  +:+       +#+        */
+/*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 08:30:38 by erikcousill       #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/10/07 13:10:13 by ecousill         ###   ########.fr       */
-=======
-/*   Updated: 2024/10/05 13:23:24 by erikcousill      ###   ########.fr       */
->>>>>>> refs/remotes/origin/main
+/*   Created: 2024/10/07 13:37:11 by ecousill          #+#    #+#             */
+/*   Updated: 2024/10/07 13:37:12 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
