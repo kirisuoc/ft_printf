@@ -9,3 +9,4 @@ libft.a
 libftprintf.a
 .DS_Store
 test_ft_printf.c
+main.c
