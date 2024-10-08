@@ -6,10 +6,9 @@
 /*   By: ecousill <ecousill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 13:37:23 by ecousill          #+#    #+#             */
-/*   Updated: 2024/10/07 13:37:25 by ecousill         ###   ########.fr       */
+/*   Updated: 2024/10/08 10:20:28 by ecousill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "./libft/libft.h"
 #include "ft_printf.h"
